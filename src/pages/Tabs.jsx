@@ -50,20 +50,20 @@ export default function BasicTabs() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Stats" {...a11yProps(0)} />
-          <Tab label="Tab 2" {...a11yProps(1)} />
-          <Tab label="Tab 3" {...a11yProps(2)} />
+          <Tab label="Jobs" {...a11yProps(0)} />
+          <Tab label="Stats" {...a11yProps(1)} />
+          {/* <Tab label="Tab 3" {...a11yProps(2)} /> */}
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
         <Grid/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        Stats
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      {/* <TabPanel value={value} index={2}>
         Item Three
-      </TabPanel>
+      </TabPanel> */}
     </Box>
   );
 }
