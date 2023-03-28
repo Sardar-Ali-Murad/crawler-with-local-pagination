@@ -143,7 +143,7 @@ input {
 
 @media screen and (max-width: 400px) {
   .gridMain {
-    width: 95%;
+    width: 100%;
   }
 }
 
@@ -158,8 +158,8 @@ input {
 
 .gridHead {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "id ht ht hos hl hu hu hlast";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-areas: "id ht ht hos hl  hu hu hlast";
   gap: 10px;
 }
 
@@ -196,8 +196,8 @@ input {
 
 .gridBody {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "idCol t t hos l  u u last";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-areas: "idCol t t hos l   u u last";
   gap: 2rem;
 }
 
@@ -408,8 +408,3 @@ input {
 }
 
 
-/* @media screen and (max-width:700px) {
-  .model{
-    width: 80%;
-  }
-} */

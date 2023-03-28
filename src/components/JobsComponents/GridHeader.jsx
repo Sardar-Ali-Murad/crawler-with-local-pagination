@@ -18,6 +18,7 @@ const GridHeader = () => {
   const exportToCSV = (apiData) => {
     let newData = apiData.map((items) => {
       return {
+        ID:items?.id,
         Title: items?.title,
         HospitalName: items?.hospitalName,
         Location: items?.location,
@@ -35,7 +36,6 @@ const GridHeader = () => {
   return (
     <div className="headersMain">
       <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
-        <a className="jobsHeading">Jobs</a>
         <button
           onClick={(e) => exportToCSV(withOutFilterData)}
           style={{

@@ -143,7 +143,7 @@ input {
 
 @media screen and (max-width: 400px) {
   .gridMain {
-    width: 95%;
+    width: 100%;
   }
 }
 
@@ -156,17 +156,19 @@ input {
   font-size: 14px;
 }
 
+
+/* THE header Grid */
 .gridStatsHead {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "shn shj shu";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "shhn shhn  shj shu shn shl shl  she shnv";
   gap: 10px;
 }
 
 
 /* Grid Areas of Head */
 .statsHeadName{
-  grid-area: shn;
+  grid-area: shhn;
 }
 
 .statsHeadJobs{
@@ -177,33 +179,34 @@ input {
   grid-area: shu;
 }
 
-/* .headLocation{
-  grid-area: hl;
+.statsHeadLocation{
+  grid-area: shl;
+}
+.statsHeadErrorNum{
+  grid-area: she;
+}
+.statsHeadNotVac{
+  grid-area: shnv;
+}
+
+/* .statsHeadNotVac,.statsHeadErrorNum,.statsHeadLocation,.statsHeadUrl,.statsHeadJobs,.statsHeadName{
+  word-break: break-all;
 } */
 
-/* .headDescription{
-  grid-area: hd;
-} */
 
-/* .headUrl{
-   grid-area: hu;
-} */
-
-/* .headLastSeen{
-   grid-area: hlast;
-} */
+/* Ends  */
 
 
 .statsBody {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "sbn sbj sbu";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "sbn sbn sbj sbu sbu sbl sbl sbe sbnv";
   gap: 2rem;
 }
 
 /*  */
 /* The Grid Area */
- .statsBodyName{
+.statsBodyName{
   grid-area: sbn;
 }
 
@@ -214,18 +217,22 @@ input {
 .statsBodyUrl{
   grid-area: sbu;
 }
-/* .locationColumn{
-  grid-area: l;
-} */
-/* .descriptionColumn{
-  grid-area: d;
-} */
-/* .jobsUrl{
-  grid-area: u;
+.statsBodyLocation{
+   grid-area: sbl;
+  }
+  
+  .statsBodyErrorNum{
+  grid-area: sbe;
 }
-.lastSeenData{
-  grid-area: last;
-}  */
+
+.statsBodyNotVac{
+  grid-area: sbnv;
+}
+
+.statsBodyName,.statsBodyJobs,.statsBodyUrl,.statsBodyLocation,.statsBodyErrorNum,.statsBodyNotVac{
+  word-break: break-all;
+}
+
 
 /*  */
 .gridBody * {
@@ -347,3 +354,9 @@ input {
 
 /* The Responsive Ness Of the table */
 
+@media screen and (max-width:700px) {
+  .gridHeadSingle a{
+    font-weight: 100;
+    font-size: 10px;
+  }
+}

@@ -10,7 +10,10 @@ import {
   handleTotalPages,
   setDataStats,
   handleHospitalNameSortStats,
-  handleJobsSortStats
+  handleJobsSortStats,
+  handleJobsLocaionSortStats,
+  handleJobsErrorNumSortStats,
+  handleNotVacSortStats
 } from "../../features/statsSlice";
 
 
@@ -63,7 +66,7 @@ const GridMain = () => {
 
   // The Searching Logic
   // This will for any of the in this way like you search for "wan" and then it will look in the title,description and location and hospitalName tables and come with the row that include the "wan"  keyword
-  const keys = ["name", "url"];
+  const keys = ["name", "url","location"];
 
   return (
     <div className="TableDataMain">
@@ -83,7 +86,7 @@ const GridMain = () => {
           <div
             className="gridHeadSingle statsHeadJobs"
             onClick={() => dispatch(handleJobsSortStats())}
-          >
+            >
             <a>Jobs</a>
             <div className="gridHeadIcons">
               <AiFillCaretUp className="IconUp" />
@@ -93,14 +96,48 @@ const GridMain = () => {
 
           <div
             className="gridHeadSingle statsHeadUrl"
-            // onClick={() => dispatch(handleHospitalNameSort())}
-          >
+            >
             <a>URL</a>
             <div className="gridHeadIcons">
               <AiFillCaretUp className="IconUp" />
               <AiFillCaretDown className="IconDown" />
             </div>
           </div>
+
+          <div
+            className="gridHeadSingle statsHeadLocation"
+            onClick={() => dispatch(handleJobsLocaionSortStats())}
+            >
+            <a>Location</a>
+            <div className="gridHeadIcons">
+              <AiFillCaretUp className="IconUp" />
+              <AiFillCaretDown className="IconDown" />
+            </div>
+          </div>
+
+          <div
+            className="gridHeadSingle statsHeadErrorNum"
+            onClick={() => dispatch(handleJobsErrorNumSortStats())}
+            >
+            <a>errors</a>
+            <div className="gridHeadIcons">
+              <AiFillCaretUp className="IconUp" />
+              <AiFillCaretDown className="IconDown" />
+            </div>
+          </div>
+
+          <div
+            className="gridHeadSingle statsHeadNotVac"
+            onClick={() => dispatch(handleNotVacSortStats())}
+          >
+            <a>Not Relevant</a>
+            <div className="gridHeadIcons">
+              <AiFillCaretUp className="IconUp" />
+              <AiFillCaretDown className="IconDown" />
+            </div>
+          </div>
+
+
         </div>
         {/* Here Ends the Headers which is teh first row of the grid title,description... */}
 
@@ -136,6 +173,19 @@ const GridMain = () => {
                       onClick={() => openInNewTab(row?.url)}>
                       <Highlighter searchText={searchStats}>{row?.url}</Highlighter>
                     </div>
+                    {/*  */}
+                    <div className="statsBodyLocation">
+                      <Highlighter searchText={searchStats}>{row?.location}</Highlighter>
+                    </div>
+                    {/*  */}
+                    <div className="statsBodyErrorNum">
+                      <Highlighter searchText={searchStats}>{row?.errorNum}</Highlighter>
+                    </div>
+                    {/*  */}
+                    <div className="statsBodyNotVac">
+                      <Highlighter searchText={searchStats}>{row?.notVac}</Highlighter>
+                    </div>
+                    {/*  */}
                     {/*  */}
                   </div>
                   <div className="RowsLine"></div>
