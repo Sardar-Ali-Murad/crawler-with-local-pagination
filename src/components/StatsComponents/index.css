@@ -160,8 +160,10 @@ input {
 /* THE header Grid */
 .gridStatsHead {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "shhn shhn  shj shu shn shl shl  she shnv";
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  /* grid-template-areas: "shhn shhn  shj shu shn shl shl  she shnv"; */
+  grid-template-areas: "shhn shhn  shj shu shn shl shl  shnv";
   gap: 10px;
 }
 
@@ -182,9 +184,12 @@ input {
 .statsHeadLocation{
   grid-area: shl;
 }
-.statsHeadErrorNum{
+
+/* .statsHeadErrorNum{
   grid-area: she;
-}
+} */
+
+
 .statsHeadNotVac{
   grid-area: shnv;
 }
@@ -199,8 +204,10 @@ input {
 
 .statsBody {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "sbn sbn sbj sbu sbu sbl sbl sbe sbnv";
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  /* grid-template-areas: "sbn sbn sbj sbu sbu sbl sbl sbe sbnv"; */
+  grid-template-areas: "sbn sbn sbj sbu sbu sbl sbl  sbnv";
   gap: 2rem;
 }
 
@@ -221,9 +228,9 @@ input {
    grid-area: sbl;
   }
   
-  .statsBodyErrorNum{
+  /* .statsBodyErrorNum{
   grid-area: sbe;
-}
+} */
 
 .statsBodyNotVac{
   grid-area: sbnv;
