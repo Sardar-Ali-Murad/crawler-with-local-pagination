@@ -133,20 +133,6 @@ input {
   cursor: pointer;
 }
 
-@media screen and (max-width: 900px) {
-  .gridMain {
-    width: 90%;
-  }
-}
-
-
-
-@media screen and (max-width: 400px) {
-  .gridMain {
-    width: 100%;
-  }
-}
-
 /* Fot the TableMain.jsx */
 
 .gridHead a {
@@ -156,41 +142,40 @@ input {
   font-size: 14px;
 }
 
-
 /* THE header Grid */
 .gridStatsHead {
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  /* grid-template-areas: "shhn shhn  shj shu shn shl shl  she shnv"; */
-  grid-template-areas: "shhn shhn  shj shu shn shl shl  shnv";
+  /* Without the error Column */
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
+  /* grid-template-areas: "shhn shhn  shj shu shn shl shl  shnv"; */
+  /* With Error Column */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "shhn shhn  shj shu shu  shl shl  she shnv";
   gap: 10px;
 }
 
-
 /* Grid Areas of Head */
-.statsHeadName{
+.statsHeadName {
   grid-area: shhn;
 }
 
-.statsHeadJobs{
+.statsHeadJobs {
   grid-area: shj;
 }
 
-.statsHeadUrl{
+.statsHeadUrl {
   grid-area: shu;
 }
 
-.statsHeadLocation{
+.statsHeadLocation {
   grid-area: shl;
 }
 
-/* .statsHeadErrorNum{
+.statsHeadErrorNum {
   grid-area: she;
-} */
+}
 
-
-.statsHeadNotVac{
+.statsHeadNotVac {
   grid-area: shnv;
 }
 
@@ -198,48 +183,52 @@ input {
   word-break: break-all;
 } */
 
-
 /* Ends  */
-
 
 .statsBody {
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
-  /* grid-template-areas: "sbn sbn sbj sbu sbu sbl sbl sbe sbnv"; */
-  grid-template-areas: "sbn sbn sbj sbu sbu sbl sbl  sbnv";
+  /* Without the Error */
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ; */
+  /* grid-template-areas: "sbn sbn sbj sbu sbu sbl sbl  sbnv"; */
+  /* With the Error Column */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "sbn sbn sbj sbu sbu sbl sbl sbe sbnv";
   gap: 2rem;
 }
 
 /*  */
 /* The Grid Area */
-.statsBodyName{
+.statsBodyName {
   grid-area: sbn;
 }
 
-.statsBodyJobs{
+.statsBodyJobs {
   grid-area: sbj;
 }
 
-.statsBodyUrl{
+.statsBodyUrl {
   grid-area: sbu;
 }
-.statsBodyLocation{
-   grid-area: sbl;
-  }
-  
-  /* .statsBodyErrorNum{
-  grid-area: sbe;
-} */
+.statsBodyLocation {
+  grid-area: sbl;
+}
 
-.statsBodyNotVac{
+.statsBodyErrorNum {
+  grid-area: sbe;
+}
+
+.statsBodyNotVac {
   grid-area: sbnv;
 }
 
-.statsBodyName,.statsBodyJobs,.statsBodyUrl,.statsBodyLocation,.statsBodyErrorNum,.statsBodyNotVac{
+.statsBodyName,
+.statsBodyJobs,
+.statsBodyUrl,
+.statsBodyLocation,
+.statsBodyErrorNum,
+.statsBodyNotVac {
   word-break: break-all;
 }
-
 
 /*  */
 .gridBody * {
@@ -280,21 +269,21 @@ input {
   cursor: pointer;
 }
 
-.jobsUrl{
+.jobsUrl {
   cursor: pointer;
 }
 
-.jobsUrl:hover{
+.jobsUrl:hover {
   color: blue;
   text-decoration: underline;
 }
 
-.lastSeenData a{
+.lastSeenData a {
   display: flex;
   justify-content: flex-end;
 }
 
-.lastSeen{
+.lastSeen {
   display: flex;
   justify-content: flex-end;
 }
@@ -322,7 +311,7 @@ input {
   line-height: 14px;
 }
 
-.tableFooterMain p span{
+.tableFooterMain p span {
   /* color: rgb(205, 242, 228); */
   text-decoration: underline;
   color: blue;
@@ -354,16 +343,60 @@ input {
   margin-top: 30px;
 }
 
-.gridHeadSingle a{
+.gridHeadSingle a {
   font-weight: bold;
   cursor: pointer;
 }
 
 /* The Responsive Ness Of the table */
 
-@media screen and (max-width:700px) {
-  .gridHeadSingle a{
+@media screen and (max-width: 700px) {
+  .gridHeadSingle a {
     font-weight: 100;
     font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .gridMain {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .gridStatsHead {
+    display: grid;
+    /* Without the error Column */
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
+    /* grid-template-areas: "shhn shhn  shj shu shn shl shl  shnv"; */
+    /* With Error Column */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "shhn shhn  shj shu shu  shl shl she";
+    gap: 10px;
+  }
+
+  .statsHeadNotVac {
+    display: none;
+  }
+
+  .statsBodyNotVac {
+    display: none;
+  }
+
+  .statsBody {
+    display: grid;
+    /* Without the Error */
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ; */
+    /* grid-template-areas: "sbn sbn sbj sbu sbu sbl sbl  sbnv"; */
+    /* With the Error Column */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "sbn sbn sbj sbu sbu sbl sbl sbe";
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .gridMain {
+    width: 98%;
   }
 }

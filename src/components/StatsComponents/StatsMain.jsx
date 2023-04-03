@@ -114,17 +114,18 @@ const GridMain = () => {
               <AiFillCaretDown className="IconDown" />
             </div>
           </div>
-{/* 
+        {/*  */}
           <div
             className="gridHeadSingle statsHeadErrorNum"
-            onClick={() => dispatch(handleJobsErrorNumSortStats())}
+            // onClick={() => dispatch(handleJobsErrorNumSortStats())}
             >
             <a>errors</a>
             <div className="gridHeadIcons">
               <AiFillCaretUp className="IconUp" />
               <AiFillCaretDown className="IconDown" />
             </div>
-          </div> */}
+          </div>
+          {/*  */}
 
           <div
             className="gridHeadSingle statsHeadNotVac"
@@ -178,12 +179,16 @@ const GridMain = () => {
                       <Highlighter searchText={searchStats}>{row?.location}</Highlighter>
                     </div>
                     {/*  */}
-                    {/* <div className="statsBodyErrorNum">
-                      <Highlighter searchText={searchStats}>{row?.errorNum}</Highlighter>
-                    </div> */}
                     {/*  */}
+                    <div className="statsBodyErrorNum">
+                      {/* <Highlighter searchText={searchStats}>{row?.errorNum}</Highlighter> */}
+                      {/* <div>{!row.errorMessage===null?row?.errorMessage:"empty"}</div> */}
+                      <div>Empty</div>
+                    </div>
+                     {/*  */}
+                    
                     <div className="statsBodyNotVac">
-                      <Highlighter searchText={searchStats}>{row?.notVac}</Highlighter>
+                      <div searchText={searchStats}>{row?.notVac}</div>
                     </div>
                     {/*  */}
                     {/*  */}

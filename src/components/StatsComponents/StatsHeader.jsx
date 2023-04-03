@@ -22,7 +22,6 @@ const GridHeader = () => {
         Jobs: items?.vac,
         Url: items?.url,
         Location:items?.location,
-        errorNum:items?.errorNum,
         notVac:items?.notVac
       }
     });
