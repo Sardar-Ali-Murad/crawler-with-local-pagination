@@ -348,6 +348,17 @@ input {
   cursor: pointer;
 }
 
+.errorBtn{
+  background-color: #ff676d;
+  border: 1px solid #ff676d;
+  color: #ffffff;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* The Responsive Ness Of the table */
 
 @media screen and (max-width: 700px) {
