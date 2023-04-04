@@ -208,13 +208,11 @@ const GridMain = () => {
                       onClick={() => errorHandler(row?.errorMessage)}
                     >
                       <div>
-                        {row?.errorMessage && row?.errorNum !== 0 ? (
+                        {row?.errorMessage && row?.errorNum !== 0 && (
                           <p style={{ cursor: "pointer" }}>
                             {row?.errorNum} errors{" "}
                           </p>
-                        ) : (
-                          <p style={{ cursor: "not-allowed" }}>Empty</p>
-                        )}
+                        ) }
                       </div>
                     </div>
                     {/*  */}
