@@ -5,17 +5,17 @@ import GridHeaders from "../components/JobsComponents/GridHeader";
 import GridMain from "../components/JobsComponents/GridMain";
 import GrifFooter from "../components/JobsComponents/GridFooter";
 import "../components/JobsComponents/index.css";
-import PopUp from "../components/JobsComponents/PopUp"
+import PopUp from "../components/JobsComponents/PopUp";
 
 const Grid = () => {
   return (
     <div>
-      <PopUp/>
-    <div className="gridMain">
-      <GridHeaders />
-      <GridMain />
-      <GrifFooter />
-    </div>
+      <PopUp />
+      <div className="gridMain">
+        <GridHeaders />
+        <GridMain />
+        <GrifFooter />
+      </div>
     </div>
   );
 };

@@ -15,15 +15,15 @@ import {
   handleJobsErrorNumSortStats,
   handleNotVacSortStats,
 } from "../../features/statsSlice";
-import DialogBox from "./ErrorDialogBox"
+import DialogBox from "./ErrorDialogBox";
 
 import CircularProgress from "@mui/material/CircularProgress";
 // import moment from "moment/moment";
 import "./index.css";
 
 const GridMain = () => {
-  let [errorMessages,setErrorMessages]=React.useState([])
-  let [dialog,setDialog]=React.useState(false)
+  let [errorMessages, setErrorMessages] = React.useState([]);
+  let [dialog, setDialog] = React.useState(false);
   let [loading, setLoading] = React.useState(true);
   let dispatch = useDispatch();
   let {
@@ -48,6 +48,7 @@ const GridMain = () => {
         let { data } = await axios.get(
           "https://searchjobserver.herokuapp.com/JobSearch/crawler/count"
         );
+        console.log(data);
         dispatch(setDataStats({ data: data }));
         setLoading(false);
       } catch (error) {
@@ -58,14 +59,12 @@ const GridMain = () => {
   }, []);
 
   // The Error Dialog Box
-  function errorHandler(errMessages){
-    if(errMessages!==null){
-      setDialog(true)
-      setErrorMessages(errMessages)
+  function errorHandler(errMessages) {
+    if (errMessages !== null && errMessages.length !== 0) {
+      setDialog(true);
+      setErrorMessages(errMessages);
     }
   }
-
-  console.log(errorMessages)
 
   // When the User Click the link it will be shown in the new tab
   const openInNewTab = (url) => {
@@ -82,7 +81,11 @@ const GridMain = () => {
 
   return (
     <div className="TableDataMain">
-      <DialogBox dialog={dialog} messages={errorMessages} setDialog={setDialog}/>
+      <DialogBox
+        dialog={dialog}
+        messages={errorMessages}
+        setDialog={setDialog}
+      />
       <div>
         {/* Here Starts / This is the main heading of the title,description,url,date,location... */}
         <div className="gridStatsHead">
@@ -200,8 +203,19 @@ const GridMain = () => {
                     </div>
                     {/*  */}
                     {/*  */}
-                    <div className="statsBodyErrorNum" onClick={()=>errorHandler(row?.errorMessage)}>
-                      <div>{row?.errorMessage ? <button className="errorBtn">{row?.errorNum} errors </button>:<p style={{cursor:"not-allowed"}}>Empty</p> }</div>
+                    <div
+                      className="statsBodyErrorNum"
+                      onClick={() => errorHandler(row?.errorMessage)}
+                    >
+                      <div>
+                        {row?.errorMessage && row?.errorNum !== 0 ? (
+                          <p style={{ cursor: "pointer" }}>
+                            {row?.errorNum} errors{" "}
+                          </p>
+                        ) : (
+                          <p style={{ cursor: "not-allowed" }}>Empty</p>
+                        )}
+                      </div>
                     </div>
                     {/*  */}
 

@@ -13,6 +13,7 @@ import {
   handleTitleSort,
   handleDateSort,
   handleHospitalNameSort,
+  handleJobTypeSort
 } from "../../features/jobsSlice";
 import CircularProgress from "@mui/material/CircularProgress";
 import moment from "moment/moment";
@@ -63,7 +64,7 @@ const GridMain = () => {
 
   // The Searching Logic
   // This will for any of the in this way like you search for "wan" and then it will look in the title,description and location and hospitalName tables and come with the row that include the "wan"  keyword
-  const keys = ["title", "location", "url", "hospitalName"];
+  const keys = ["title", "location", "url", "hospitalName","jobType"];
 
   return (
     <div className="TableDataMain">
@@ -71,7 +72,7 @@ const GridMain = () => {
         {/* Here Starts / This is the main heading of the title,description,url,date,location... */}
         <div className="gridHead">
           {/*  */}
-          <div className="gridHeadSingle headID">
+          <div className="gridHeadSingle headID" id="IdHeader">
             <p>ID</p>
             <div className="gridHeadIcons">
               <AiFillCaretUp className="IconUp" />
@@ -90,6 +91,19 @@ const GridMain = () => {
               <AiFillCaretDown className="IconDown" />
             </div>
           </div>
+
+          {/*  */}
+          <div
+            className="gridHeadSingle headType"
+            onClick={() => dispatch(handleJobTypeSort())}
+          >
+            <p>jobType</p>
+            <div className="gridHeadIcons">
+              <AiFillCaretUp className="IconUp" />
+              <AiFillCaretDown className="IconDown" />
+            </div>
+          </div>
+          {/*  */}
 
           <div
             className="gridHeadSingle headHospitalName"
@@ -164,6 +178,14 @@ const GridMain = () => {
                         {row?.title}
                       </Highlighter>
                     </div>
+
+                    {/*  */}
+                    <div className="jobTypeColumn">
+                      <Highlighter searchText={search}>
+                        {row?.jobType?row?.jobType:"Empty"}
+                      </Highlighter>
+                    </div>
+                    {/*  */}
 
                     {/* Hospital Name Column */}
                     <div className="hospitalNameColumn">

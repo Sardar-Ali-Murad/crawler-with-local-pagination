@@ -9,7 +9,7 @@
 .gridMain {
   margin-left: 50%;
   transform: translateX(-50%);
-  width: 90%;
+  width: 97%;
   border-radius: 16px;
   background-color: #ffffff;
   box-shadow: 0px 4px 15px rgba(58, 96, 110, 0.15);
@@ -157,8 +157,8 @@ input {
 
 .gridHead {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "id ht ht hos hl  hu hu hlast";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "id ht  ht htype hhos hl  hu hu hlast";
   gap: 10px;
 }
 
@@ -167,12 +167,16 @@ input {
   grid-area: ht;
 }
 
+.headType{
+  grid-area: htype;
+}
+
 .headID {
   grid-area: id;
 }
 
 .headHospitalName {
-  grid-area: hos;
+  grid-area: hhos;
 }
 
 .headLocation {
@@ -193,8 +197,8 @@ input {
 
 .gridBody {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "idCol t t hos l   u u last";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "idCol t t jtcol hos l   u u last";
   gap: 2rem;
 }
 
@@ -206,6 +210,10 @@ input {
 
 .idColumn {
   grid-area: idCol;
+}
+
+.jobTypeColumn{
+  grid-area: jtcol;
 }
 
 .hospitalNameColumn {
@@ -343,7 +351,7 @@ input {
 .firstColumn,
 .hospitalNameColumn,
 .locationColumn,
-.idColumn {
+.idColumn,.jobTypeColumn {
   /* display: flex; */
   /* width: 100%; */
   /* inline-size: 150px; */
@@ -390,21 +398,28 @@ input {
 @media screen and (max-width: 800px) {
   .locationColumn,
   .descriptionColumn,
-  .headLocationJobs {
+  .headLocationJobs,
+  .headID,.idColumn {
     display: none;
   }
   /* .headDescription{
     display: none;
   } */
+  /* grid-template-areas: "idCol t t jtcol hos l   u u last"; */
+  /* grid-template-areas: "id ht  ht htype hhos hl  hu hu hlast"; */
   .gridBody {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "idCol t t hos u u last ";
+    grid-template-areas: "t t jtcol hos u u last";
   }
   .gridHead {
-    grid-template-areas: "id ht ht hos  hu hu hlast";
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "ht ht htype hhos  hu hu hlast";
   }
+
   #jobsLocationHeader {
+    display: none;
+  }
+  #IdHeader{
     display: none;
   }
 }

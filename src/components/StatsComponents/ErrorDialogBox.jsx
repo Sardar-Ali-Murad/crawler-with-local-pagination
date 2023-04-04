@@ -1,7 +1,5 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -27,10 +25,10 @@ export default function AlertDialogSlide({ dialog, messages, setDialog }) {
       >
         <DialogTitle>{"Error Messages"}</DialogTitle>
         <DialogContent>
-          {messages?.map((message,index) => {
+          {messages?.map((message, index) => {
             return (
-              <div style={{display:"flex",gap:"10px"}}>
-                <p>{index+1}.</p>
+              <div style={{ display: "flex", gap: "10px" }}>
+                <p>{index + 1}.</p>
                 <DialogContentText
                   id="alert-dialog-slide-description"
                   style={{ marginBottom: "15px" }}

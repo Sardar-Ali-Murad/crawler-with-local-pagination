@@ -14,9 +14,10 @@ let initialState = {
   titleSort: false,
   descriptionSort: false,
   locationSort: false,
-  dateSort:false,
-  withOutFilterData:[],
-  hospitalSort:false
+  dateSort: false,
+  jobTypeSort: false,
+  withOutFilterData: [],
+  hospitalSort: false,
 };
 
 const jobsSlice = createSlice({
@@ -44,7 +45,7 @@ const jobsSlice = createSlice({
     },
     setData: (state, action) => {
       state.data = action.payload.data;
-      state.withOutFilterData=action.payload.data
+      state.withOutFilterData = action.payload.data;
       state.totalPages = Math.ceil(
         action.payload.data.length / state.selectPage
       );
@@ -109,7 +110,6 @@ const jobsSlice = createSlice({
       state.locationSort = !state.locationSort;
     },
 
-
     handleHospitalNameSort: (state) => {
       if (state.hospitalSort) {
         state.data = state.data.sort(function (a, b) {
@@ -124,7 +124,25 @@ const jobsSlice = createSlice({
           return textA < textB ? 1 : textA > textB ? -1 : 0;
         });
       }
-      state.hospitalSort= !state.hospitalSort
+      state.hospitalSort = !state.hospitalSort;
+    },
+
+
+    handleJobTypeSort: (state) => {
+      if (state.jobTypeSort) {
+        state.data = state.data.sort(function (a, b) {
+          var textA = a?.jobType.toUpperCase() || "";
+          var textB = b?.jobType.toUpperCase() || "";
+          return textA < textB ? -1 : textA > textB ? 1 : 0;
+        });
+      } else {
+        state.data = state.data.sort(function (a, b) {
+          var textA = a?.jobType.toUpperCase() || "";
+          var textB = b?.jobType.toUpperCase() || "";
+          return textA < textB ? 1 : textA > textB ? -1 : 0;
+        });
+      }
+      state.jobTypeSort = !state.jobTypeSort;
     },
 
     // The Below Sorting Logic is Not Working for the Chrome
@@ -137,17 +155,18 @@ const jobsSlice = createSlice({
     //   state.locationSort = !state.locationSort;
     // },
 
-
     handleDateSort: (state) => {
       if (state.dateSort) {
-        state.data = state.data.sort((a, b) => (new Date(a.addedDate)) - (new Date(b.addedDate)));
+        state.data = state.data.sort(
+          (a, b) => new Date(a.addedDate) - new Date(b.addedDate)
+        );
       } else {
-        state.data = state.data.sort((a, b) => (new Date(b.addedDate)) - (new Date(a.addedDate)));
+        state.data = state.data.sort(
+          (a, b) => new Date(b.addedDate) - new Date(a.addedDate)
+        );
       }
       state.dateSort = !state.dateSort;
     },
-
-
   },
 });
 
@@ -164,7 +183,8 @@ export const {
   handleTitleSort,
   clearSearch,
   handleDateSort,
-  handleHospitalNameSort
+  handleHospitalNameSort,
+  handleJobTypeSort
 } = jobsSlice.actions;
 
 export default jobsSlice.reducer;
