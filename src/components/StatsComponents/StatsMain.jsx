@@ -210,7 +210,7 @@ const GridMain = () => {
                       <div>
                         {row?.errorMessage && row?.errorNum !== 0 && (
                           <p style={{ cursor: "pointer" }}>
-                            {row?.errorNum} errors{" "}
+                            {row?.errorNum} errors
                           </p>
                         ) }
                       </div>
@@ -234,3 +234,5 @@ const GridMain = () => {
 };
 
 export default GridMain;
+
+

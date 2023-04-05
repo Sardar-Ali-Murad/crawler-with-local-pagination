@@ -101,7 +101,7 @@ const GridHeader = () => {
           value={search}
           style={{ height: "5px" }}
           onChange={(e) => dispatch(handleSearch({ search: e.target.value }))}
-          placeholder="Search Here..."
+          placeholder="Search Globally..."
           className="headerTextField"
         />
       </div>

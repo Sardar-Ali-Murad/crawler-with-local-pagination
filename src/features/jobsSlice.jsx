@@ -18,6 +18,12 @@ let initialState = {
   jobTypeSort: false,
   withOutFilterData: [],
   hospitalSort: false,
+
+  // The Filters On Each Column
+  titleFilter: "",
+  jobTypeFilter: "",
+  nameFilter: "",
+  locationFilter: "",
 };
 
 const jobsSlice = createSlice({
@@ -50,6 +56,52 @@ const jobsSlice = createSlice({
         action.payload.data.length / state.selectPage
       );
     },
+
+    // The Filter on Each Column
+
+    stopJobSearch: (state) => {
+      state.search = "";
+    },
+    stopSubSearch: (state) => {
+      state.jobTypeFilter = "";
+      state.nameFilter = "";
+      state.locationFilter = "";
+      state.titleFilter = "";
+    },
+    searchOnColumns: (state) => {
+      let dummyData = state.withOutFilterData;
+      if (state.titleFilter) {
+        dummyData = dummyData.filter((item) =>
+          item?.title?.toUpperCase().includes(state.titleFilter.toUpperCase())
+        );
+      }
+      if (state.jobTypeFilter) {
+        dummyData = dummyData.filter((item) =>
+          item?.jobType
+            ?.toUpperCase()
+            .includes(state.jobTypeFilter.toUpperCase())
+        );
+      }
+      if (state.nameFilter) {
+        dummyData = dummyData.filter((item) =>
+          item?.hospitalName
+            ?.toUpperCase()
+            .includes(state.nameFilter.toUpperCase())
+        );
+      }
+      if (state.locationFilter) {
+        dummyData = dummyData.filter((item) =>
+          item?.location
+            ?.toUpperCase()
+            .includes(state.locationFilter.toUpperCase())
+        );
+      }
+      state.data = dummyData;
+    },
+    handleChangeTextField: (state, action) => {
+      state[action.payload.name] = action.payload.value;
+    },
+
     handleInputForm: (state) => {
       if (
         Number(state.inputPage) <= state.totalPages &&
@@ -127,7 +179,6 @@ const jobsSlice = createSlice({
       state.hospitalSort = !state.hospitalSort;
     },
 
-
     handleJobTypeSort: (state) => {
       if (state.jobTypeSort) {
         state.data = state.data.sort(function (a, b) {
@@ -184,7 +235,13 @@ export const {
   clearSearch,
   handleDateSort,
   handleHospitalNameSort,
-  handleJobTypeSort
+  handleJobTypeSort,
+  stopJobSearch,
+
+  //  The Single Column Filters
+  handleChangeTextField,
+  stopSubSearch,
+  searchOnColumns,
 } = jobsSlice.actions;
 
 export default jobsSlice.reducer;
