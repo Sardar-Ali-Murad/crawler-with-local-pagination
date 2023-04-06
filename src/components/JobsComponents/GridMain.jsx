@@ -229,24 +229,24 @@ const UpcomingItemsTable = () => {
                 </TableCell>
                 <TableCell className="jobsGridBody">
                   <Highlighter searchText={search}>
-                    {item?.jobType && item?.jobType}
+                    {item?.jobType ? item?.jobType:""}
                   </Highlighter>
                 </TableCell>
                 <TableCell className="jobsGridBody">
                   <Highlighter searchText={search}>
-                    {item?.hospitalName}
+                    {item?.hospitalName?item?.hospitalName:""}
                   </Highlighter>
                 </TableCell>
                 <TableCell className="jobsGridBody">
                   <Highlighter searchText={search}>
-                    {item?.location}
+                    {item?.location?item?.location:""}
                   </Highlighter>
                 </TableCell>
                 <TableCell
                   onClick={() => openInNewTab(item?.url)}
                   className="link jobsGridBody"
                 >
-                  <Highlighter searchText={search}>{item?.url}</Highlighter>
+                  <Highlighter searchText={search}>{item?.url?item?.url:""}</Highlighter>
                 </TableCell>
                 <TableCell className="jobsGridBody">
                   {moment(item?.addedDate).format("DD/MM/YYYY")}

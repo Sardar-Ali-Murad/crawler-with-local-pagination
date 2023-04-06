@@ -168,3 +168,17 @@
   padding: 0 !important;
   border: unset !important;
 }
+
+.lastDate{
+  text-decoration:underline ;
+}
+
+@media screen and (max-width:800px) {
+  .headersMainJobs{
+    width: 120vh;
+  }
+  .tableFooterMainJobs{
+    width: 120vh;
+
+  }
+}
