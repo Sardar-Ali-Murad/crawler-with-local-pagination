@@ -58,7 +58,7 @@ const GridHeader = () => {
 
   return (
     <div className="headersMain headersMainJobs">
-      <h2>last run finished:<span className="lastDate">{lastDate}</span></h2>
+      <p>last run finished:<span className="lastDate">{lastDate}</span></p>
       <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
         {/* This is Prop Starts */}
         <Dialog
