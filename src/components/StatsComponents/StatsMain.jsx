@@ -209,9 +209,9 @@ const GridMain = () => {
                     >
                       <div>
                         {row?.errorMessage && row?.errorNum !== 0 && (
-                          <p style={{ cursor: "pointer" }}>
+                          <button className="errorBtn">
                             {row?.errorNum} errors
-                          </p>
+                          </button>
                         ) }
                       </div>
                     </div>
