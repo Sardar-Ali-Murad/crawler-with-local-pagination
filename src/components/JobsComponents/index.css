@@ -16,7 +16,7 @@
 }
 
 
-@media screen and (min-width:900px) {
+@media screen and (min-width:1120px) {
   .jobsGridBody{
   word-break: break-all;
   }
