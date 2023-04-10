@@ -225,7 +225,7 @@ const UpcomingItemsTable = () => {
                   {item?.id}
                 </TableCell>
                 <TableCell className="jobsGridBody">
-                  <Highlighter searchText={search}>{item?.title}</Highlighter>
+                  <Highlighter searchText={search}>{item?.title?item?.title:""}</Highlighter>
                 </TableCell>
                 <TableCell className="jobsGridBody">
                   <Highlighter searchText={search}>

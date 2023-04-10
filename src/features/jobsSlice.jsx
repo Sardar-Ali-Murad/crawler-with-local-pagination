@@ -62,42 +62,46 @@ const jobsSlice = createSlice({
     stopJobSearch: (state) => {
       state.search = "";
     },
+    // Not Using Now
     stopSubSearch: (state) => {
       state.jobTypeFilter = "";
       state.nameFilter = "";
       state.locationFilter = "";
       state.titleFilter = "";
     },
+    // 
     searchOnColumns: (state) => {
       let dummyData = state.withOutFilterData;
       if (state.titleFilter) {
-        dummyData = dummyData.filter((item) =>
-          item?.title?.toUpperCase().includes(state.titleFilter.toUpperCase())
+        dummyData = dummyData?.filter((item) =>
+          item?.title?.toUpperCase().includes(state?.titleFilter?.toUpperCase())
         );
       }
       if (state.jobTypeFilter) {
-        dummyData = dummyData.filter((item) =>
+        dummyData = dummyData?.filter((item) =>
           item?.jobType
             ?.toUpperCase()
-            .includes(state.jobTypeFilter.toUpperCase())
+            .includes(state?.jobTypeFilter?.toUpperCase())
         );
       }
       if (state.nameFilter) {
-        dummyData = dummyData.filter((item) =>
+        dummyData = dummyData?.filter((item) =>
           item?.hospitalName
             ?.toUpperCase()
-            .includes(state.nameFilter.toUpperCase())
+            .includes(state?.nameFilter?.toUpperCase())
         );
       }
       if (state.locationFilter) {
-        dummyData = dummyData.filter((item) =>
+        dummyData = dummyData?.filter((item) =>
           item?.location
             ?.toUpperCase()
-            .includes(state.locationFilter.toUpperCase())
+            .includes(state?.locationFilter?.toUpperCase())
         );
       }
       state.data = dummyData;
     },
+
+    // 
     handleChangeTextField: (state, action) => {
       state[action.payload.name] = action.payload.value;
     },
