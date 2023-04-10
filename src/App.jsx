@@ -8,7 +8,7 @@ const App = () => {
   React.useEffect(()=>{
     const start=async ()=>{
       let {data}=await axios.get("https://searchjobserver.herokuapp.com/JobSearch/crawler/runInfo")
-      sessionStorage.setItem("endTime",JSON.stringify(data[0].endTime))
+      sessionStorage.setItem("endTime",JSON.stringify(data[data.length-1].endTime))
     }
     start()
   },[])
