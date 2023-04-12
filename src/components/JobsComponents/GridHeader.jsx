@@ -152,7 +152,6 @@ const GridHeader = () => {
   return (
     <div className="headersMainJobs">
       <ToastContainer />
-      <p>{radiusLocationSearch}</p>
       <div className="lastDateAndCard">
         <p>
           last run finished:<span className="lastDate">{lastDate}</span>
