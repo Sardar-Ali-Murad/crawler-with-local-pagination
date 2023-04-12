@@ -28,24 +28,40 @@ const StopSlider = ({ ref }) => {
   //     label: "5000km",
   //   },
   // ];
+  // const marks = [
+  //   {
+  //     value: 10,
+  //     label: "10km",
+  //   },
+  //   {
+  //     value: 20,
+  //     label: "20km",
+  //   },
+  //   {
+  //     value: 30,
+  //     label: "30km",
+  //   },
+  //   {
+  //     value: 40,
+  //     label: "40km",
+  //   },
+  // ];
+
   const marks = [
     {
-      value: 10,
-      label: "10km",
+      value: "0km",
     },
     {
-      value: 20,
-      label: "20km",
+      value: "20km",
     },
     {
-      value: 30,
-      label: "30km",
+      value: 37,
     },
     {
-      value: 40,
-      label: "40km",
+      value: 100,
     },
   ];
+  
 
   const valuetext = (value) => {
     return `${value}km`;
@@ -68,12 +84,15 @@ const StopSlider = ({ ref }) => {
         // marks={marks}
         step={null}
       /> */}
-      <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" 
+      <Slider defaultValue={50} aria-label="auto" 
         onChange={(e) => dispatch(changeRadius(e.target.value))}
         value={radius}
         min={0}
         max={500}
+        // marks={marks}
+        valueLabelDisplay="auto"
       />
+      <p>km</p>
     </Box>
   );
 };

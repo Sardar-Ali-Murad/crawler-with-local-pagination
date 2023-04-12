@@ -172,9 +172,9 @@ const GridMain = () => {
               paginationPage * selectPage - selectPage,
               paginationPage * selectPage
             )
-            .map((row) => {
+            .map((row,index) => {
               return (
-                <div className="gridWrapper">
+                <div className="gridWrapper" key={index}>
                   <div className="statsBody">
                     {/*  */}
                     <div className="statsBodyName">

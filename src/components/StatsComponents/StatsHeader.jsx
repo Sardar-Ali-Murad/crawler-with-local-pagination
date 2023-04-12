@@ -62,7 +62,7 @@ const GridHeader = () => {
           {
             keys?.map((item,i)=>{
               // return  <Chip label={item(values[i])} />
-              return <div className="chip">
+              return <div className="chip" key={i}>
                 <p>{item?item:""}</p>
                 <p>{values[i]?values[i]:''}</p>
               </div>
