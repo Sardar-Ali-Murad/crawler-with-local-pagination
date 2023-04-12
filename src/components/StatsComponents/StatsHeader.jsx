@@ -48,15 +48,18 @@ const GridHeader = () => {
    start()
   },[])
 
+  // The Jobs Usage
+  let {loading}=useSelector((state)=>state.jobs)
+
   return (
     <div className="headersMain statsHeaderMain">
       <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
         <div className="chips">
         <button
           onClick={(e) => exportToCSV(withOutFilterData)}
-          className="greenBtn"
-          // className={`greenBtn jobsBtns ${loading ? "disabledBtn" : ""}`}
-        >
+          className={`search greenBtn ${loading ? "disabledBtn" : ""}`}
+          style={{width:"150px",height:"44px"}}
+       >
           Download Stats
         </button>
           {
