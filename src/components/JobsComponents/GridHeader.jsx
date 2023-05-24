@@ -134,8 +134,8 @@ const GridHeader = () => {
   return (
     <div className="headersMainJobs headersMainJobsBigMain">
 
-
-      <div className="lastDateAndCard">
+     <div className="jobsHeaderTop">
+      {/* <div className="lastDateAndCard"> */}
         <Card className="jobsHeaderCard">
           <Autocomplete onPlaceChanged={placeChanged}>
             <input
@@ -164,10 +164,10 @@ const GridHeader = () => {
             </button>
           </div>
         </Card>
-      </div>
+      {/* </div> */}
 
       {/*  */}
-      <div className="jobsRightSide">
+      {/* <div className="jobsRightSide"> */}
         <p>
           last run finished:<span className="lastDate">{lastDate}</span>
         </p>
@@ -188,12 +188,13 @@ const GridHeader = () => {
             className="headerTextField commomTextFields"
             />
         </div>
-        <button
+        {/* </div> */}
+        {/* <button
           onClick={urlApi}
           className={`greenBtn jobsBtns ${loading ? "disabledBtn" : ""}`}
           >
           Run Crawler
-        </button>
+        </button> */}
       </div>
 
             <ToastContainer />

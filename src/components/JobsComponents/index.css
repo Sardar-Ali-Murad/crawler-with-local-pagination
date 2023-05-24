@@ -297,3 +297,13 @@
   position: relative;
   top: 20px;
 }
+
+.jobsRightSide{
+  display: flex;
+}
+
+
+.jobsHeaderTop{
+  display: flex;
+  gap: 80px;
+}

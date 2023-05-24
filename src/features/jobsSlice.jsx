@@ -58,7 +58,7 @@ const jobsSlice = createSlice({
       state.totalPages = action.payload.pages;
     },
     setData: (state, action) => {
-      state.data = action.payload.data;
+      state.data = action.payload.data.sort((dateA, dateB) => dateB.addedDate -dateA.addedDate )
       state.withOutFilterData = action.payload.data;
       (state.withOutFilterDataLocationRadius = []),
         (state.totalPages = Math.ceil(
@@ -237,6 +237,14 @@ const jobsSlice = createSlice({
         );
       }
       state.dateSort = !state.dateSort;
+      // console.log(state.data)
+      // if(state.dateSort){
+      //   state.data= state.data?.sort((dateA, dateB) => dateB.addedDate -dateA.addedDate )
+      // }
+      // if(!state.dateSort){
+      //   state.data= state.data?.sort((dateA, dateB) => dateA.addedDate -dateB.addedDate )
+      // }
+      //  state.dateSort = !state.dateSort;
     },
 
     //The Radius Location

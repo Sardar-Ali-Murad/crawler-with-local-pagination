@@ -89,7 +89,6 @@ const StopSlider = ({ ref }) => {
         value={radius}
         min={0}
         max={500}
-        // marks={marks}
         valueLabelDisplay="auto"
       />
       <p>km</p>
